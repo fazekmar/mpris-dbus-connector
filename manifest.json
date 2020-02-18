@@ -1,0 +1,31 @@
+{
+    "name": "mpris-dbus-connector",
+    "version": "0.0.1",
+    "description": "MPRIS D-Bus connector",
+    "manifest_version": 2,
+    "icons": {
+        "48": "src/images/icons/icon-48.png",
+        "96": "src/images/icons/icon-96.png"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "mpris-dbus-connector@fazekmar",
+            "strict_min_version": "68.0"
+        }
+    },
+    "permissions": [
+        "nativeMessaging",
+        "menus",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [ "*://deezer.com/*", "*://www.deezer.com/*" ],
+            "js": [ "src/content.js", "src/integrations/deezer.js" ],
+            "run_at": "document_end"
+        }
+    ],
+    "background": {
+        "scripts": [ "src/background.js" ]
+    }
+}
