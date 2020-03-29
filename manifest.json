@@ -1,6 +1,6 @@
 {
     "name": "mpris-dbus-connector",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "MPRIS D-Bus connector",
     "manifest_version": 2,
     "icons": {
@@ -22,6 +22,11 @@
         {
             "matches": [ "*://deezer.com/*", "*://www.deezer.com/*" ],
             "js": [ "src/content.js", "src/integrations/deezer.js" ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": [ "*://listen.tidal.com/*" ],
+            "js": [ "src/content.js", "src/integrations/tidal.js" ],
             "run_at": "document_end"
         }
     ],

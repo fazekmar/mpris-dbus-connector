@@ -1,4 +1,4 @@
-const integrations = [ 'deezer.com', 'www.deezer.com' ];
+const integrations = [ 'deezer.com', 'www.deezer.com', 'listen.tidal.com' ];
 let playerTabId = null;
 
 const handleTabUpdated = (tabId, changeInfo, tabInfo) => {
