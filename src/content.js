@@ -1,5 +1,7 @@
 browser.runtime.onMessage.addListener((request) => {
-    window.postMessage(request.cmd, "*");
+  if (request.dir === "backgroundScript") {
+    window.postMessage(request, "*");
+  }
 });
 
 // TODO: Get property change from page-script and send to the background.js

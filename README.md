@@ -3,13 +3,16 @@
 ## Overview
 
 #### Permissions:
-- tabs (***Access browser tabs***) - store player tabId - needed to send message from background to content script
+
+- tabs (**_Access browser tabs_**) - store player tabId - needed to send message from background to content script
 - menus - create context menu item
-- nativeMessaging (***Exchange messages with programs other than Firefox***) - communication between the host application and extension
+- nativeMessaging (**_Exchange messages with programs other than Firefox_**) - communication between the host application and extension
 
 ## Install
 
 ### Host application
+
+#### Linux, MacOS, BSD
 
 TODO
 

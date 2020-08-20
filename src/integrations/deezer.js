@@ -1,20 +1,23 @@
-const scriptId = 'page-script';
+const scriptId = "page-script";
 
 const injectScript = () => {
-    // Create and inject script tag to the page - hack to access dzPlayer object
-    const pageScript = document.createElement('script');
-    pageScript.id = scriptId;
+  // Create and inject script tag to the page - hack to access dzPlayer object
+  const pageScript = document.createElement("script");
+  pageScript.id = scriptId;
 
-    // TODO: Send current song data to content.js
-    pageScript.innerHTML = `window.addEventListener('message', function(m) {
-        switch (m.data) {
+  pageScript.innerHTML = `window.addEventListener('message', function(m) {
+        if (m.data.dir !== "backgroundScript") {
+            return;
+        }
+
+        switch (m.data.cmd) {
             case 'play':
                 window.dzPlayer.control.play();
                 break;
             case 'pause':
                 window.dzPlayer.control.pause();
                 break;
-            case 'playPause':
+            case 'playpause':
                 window.dzPlayer.control.togglePause();
                 break;
             case 'next':
@@ -30,9 +33,9 @@ const injectScript = () => {
         }
     });`;
 
-    document.body.appendChild(pageScript);
+  document.body.appendChild(pageScript);
 };
 
 if (!document.getElementById(scriptId)) {
-    injectScript();
-};
+  injectScript();
+}
