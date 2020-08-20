@@ -1,0 +1,7 @@
+{
+  "name": "mpris_dbus_connector",
+  "description": "MPRIS D-Bus connector host application",
+  "path": "/home/USER/.mozilla/native-messaging-hosts/mpris_dbus_connector",
+  "type": "stdio",
+  "allowed_extensions": ["mpris-dbus-connector@fazekmar"]
+}
