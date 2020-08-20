@@ -1,5 +1,11 @@
 # mpris-dbus-connector
 
+## Status
+
+Since Firefox has native mpris integration this repo will probably never be updated.
+
+To enable the native integration set the `media.hardwaremediakeys.enabled` to `true` under the about:config page.
+
 ## Overview
 
 #### Permissions:
