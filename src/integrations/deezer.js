@@ -28,6 +28,13 @@ const injectScript = () => {
             case 'stop':
                 dzPlayer.control.stop();
                 break;
+            case 'getvolume':
+                message = {
+                    cmd: 'getvolume',
+                    value: dzPlayer.volume,
+                };
+                window.postMessage({ message, dir: "pageScript" });
+                break;
             default:
                 console.log('Operation not supported');
         }

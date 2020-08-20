@@ -4,4 +4,16 @@ browser.runtime.onMessage.addListener((request) => {
   }
 });
 
-// TODO: Get property change from page-script and send to the background.js
+window.addEventListener("message", function (m) {
+  if (m.target && m.target !== window) {
+    return;
+  }
+
+  if (m.data && m.data.dir === "pageScript") {
+    if (m.data.message) {
+      browser.runtime.sendMessage(
+        { message: m.data.message, dir: "contentScript" },
+      );
+    }
+  }
+});

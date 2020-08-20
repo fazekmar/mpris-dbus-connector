@@ -1,6 +1,6 @@
 {
   "name": "mpris-dbus-connector",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "MPRIS D-Bus connector",
   "manifest_version": 2,
   "icons": {

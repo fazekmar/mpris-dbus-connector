@@ -3,6 +3,7 @@ const integrations = ["deezer.com", "www.deezer.com", "listen.tidal.com"];
 const playerState = {
   tabId: null,
 };
+
 const handleTabUpdated = (tabId, changeInfo, tabInfo) => {
   if (
     changeInfo.status === "complete" &&
@@ -11,8 +12,6 @@ const handleTabUpdated = (tabId, changeInfo, tabInfo) => {
     playerState.tabId = tabId;
   }
 };
-
-// TODO: Handle content script mgs and send to the Native application
 
 const handleNativeMessage = (msg) => {
   switch (msg.cmd) {
@@ -30,6 +29,11 @@ const handleNativeMessage = (msg) => {
       );
   }
 };
+
+const handleContentMessage = (msg) => {
+  if (msg.data && msg.data.dir === "contentScript") {
+    port.sendMessage(msg);
+  }
 };
 
 const createMenu = () => {
@@ -56,6 +60,7 @@ const init = () => {
   port.onMessage.addListener(handleNativeMessage);
   browser.tabs.onUpdated.addListener(handleTabUpdated);
   createMenu();
+  browser.runtime.onMessage.addListener(handleContentMessage);
 };
 
 init();
